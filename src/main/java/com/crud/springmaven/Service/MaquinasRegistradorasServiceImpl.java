@@ -31,12 +31,12 @@ public class MaquinasRegistradorasServiceImpl implements MaquinasRegistradorasSe
 	}
 
 	@Override
-	public void eliminarMaquinaRegistradora(Long codigo) {		
+	public void eliminarMaquinaRegistradora(Long id) {		
 	}
 
 	@Override
-	public MaquinasRegistradorasDTO buscarMaquinaRegistradora(Long codigo) {
-		return maquinasRegistradorasDAO.findById(codigo).get();
+	public MaquinasRegistradorasDTO buscarMaquinaRegistradora(Long id) {
+		return maquinasRegistradorasDAO.findById(id).get();
 	}
 	
 }

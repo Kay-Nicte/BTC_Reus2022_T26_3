@@ -16,9 +16,9 @@ public interface MaquinasRegistradorasService {
 	public MaquinasRegistradorasDTO modificarMaquinaRegistradora(MaquinasRegistradorasDTO maquinaRegistradora);
 
 	//Eliminar máquina registradora
-	public void eliminarMaquinaRegistradora(Long codigo);
+	public void eliminarMaquinaRegistradora(Long id);
 	    
 	//Buscar máquina registradora
-	public MaquinasRegistradorasDTO buscarMaquinaRegistradora(Long codigo);
+	public MaquinasRegistradorasDTO buscarMaquinaRegistradora(Long id);
 	    
 }

@@ -39,28 +39,22 @@ public class ProductosController {
 	public List<ProductosDTO> listarProductos() {
 		return productosServiceImpl.listarProductos();
 	}
-	
-	/** Método para listar productos por código */
-	@GetMapping("/productos/codigo/{codigo}")
-	public List<ProductosDTO> listarProductosCodigo(@PathVariable(name = "codigo") String codigo) {
-		return null;
-	}
 
 	/** Método para crear un nuevo producto */
-	@PostMapping("/producto")
+	@PostMapping("/productos")
 	public ProductosDTO crearProducto(@RequestBody ProductosDTO producto) {
 		return productosServiceImpl.crearProductos(producto);
 	}
 	
 	/** Método para buscar un producto por codigo */
 	@GetMapping("/productos/{id}")
-	public ProductosDTO buscarProductoId(@PathVariable(name = "codigo") Long codigo) {
-		return productosServiceImpl.buscarProducto(codigo);
+	public ProductosDTO buscarProductoId(@PathVariable(name = "id") Long id) {
+		return productosServiceImpl.buscarProducto(id);
 	}
 	
 	/** Método para actualizar un producto */
 	@PutMapping("/productos/{id}")
-	public ProductosDTO actualizarProducto(@PathVariable(name = "codigo") Long codigo,
+	public ProductosDTO actualizarProducto(@PathVariable(name = "id") Long id,
 			@RequestBody ProductosDTO productos) {
 		
 	/** Se definen instancias del tipo Productos */
@@ -68,7 +62,7 @@ public class ProductosController {
 	ProductosDTO actualizado = new ProductosDTO();
 		
 	/** Se filtra el producto a actualizar por código */
-	producto_a_actualizar = productosServiceImpl.buscarProducto(codigo);
+	producto_a_actualizar = productosServiceImpl.buscarProducto(id);
 		
 	/** Se actualizan los valores */
 	producto_a_actualizar.setId(productos.getId());
@@ -82,8 +76,8 @@ public class ProductosController {
 	
 	/** Método para eliminar un producto */
 	@DeleteMapping("/productos/{id}")
-	public void eliminarProducto(@PathVariable(name = "codigo") Long codigo) {
-		productosServiceImpl.eliminarProducto(codigo);
+	public void eliminarProducto(@PathVariable(name = "id") Long id) {
+		productosServiceImpl.eliminarProducto(id);
 		System.out.println("Producto eliminado con exito.");
 	}
 }

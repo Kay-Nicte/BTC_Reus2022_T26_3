@@ -40,28 +40,21 @@ public class MaquinasRegistradorasController {
 		return maquinasRegistradorasServiceImpl.listarMaquinasRegistradoras();
 	}
 
-	/** Método para listar máquinas registradoras por código */
-	@GetMapping("/maquinasregistradoras/codigo/{codigo}")
-	public List<MaquinasRegistradorasDTO> listarMaquinasRegistradoras(@PathVariable(name = "codigo") String codigo) {
-		return null;
-	}
-
 	/** Método para crear una nueva máquina registradora */
-	@PostMapping("/maquinaregistradora")
+	@PostMapping("/maquinasregistradoras")
 	public MaquinasRegistradorasDTO crearMaquinaRegistradora(@RequestBody MaquinasRegistradorasDTO maquinaRegistradora) {
 		return maquinasRegistradorasServiceImpl.crearMaquinaRegistradora(maquinaRegistradora);
 	}
 
 	/** Método para buscar una máquina registradora por codigo */
 	@GetMapping("/maquinasregistradoras/{id}")
-	public MaquinasRegistradorasDTO buscarMaquinaRegistradoraId(@PathVariable(name = "codigo") Long codigo) {
-		return maquinasRegistradorasServiceImpl.buscarMaquinaRegistradora(codigo);
+	public MaquinasRegistradorasDTO buscarMaquinaRegistradoraId(@PathVariable(name = "id") Long id) {
+		return maquinasRegistradorasServiceImpl.buscarMaquinaRegistradora(id);
 	}
 
 	/** Método para actualizar una máquina registradora */
 	@PutMapping("/maquinasregistradoras/{id}")
-
-	public MaquinasRegistradorasDTO actualizarMaquinaRegistradora(@PathVariable(name = "codigo") Long codigo,
+	public MaquinasRegistradorasDTO actualizarMaquinaRegistradora(@PathVariable(name = "id") Long id,
 			@RequestBody MaquinasRegistradorasDTO maquinaRegistradora) {
 
 	/** Se definen instancias del tipo maquinasRegistradoras */
@@ -69,7 +62,7 @@ public class MaquinasRegistradorasController {
 	MaquinasRegistradorasDTO actualizado = new MaquinasRegistradorasDTO();
 
 	/** Se filtra la máquina registradora a actualizar por código */
-	maquinaRegistradora_a_actualizar = maquinasRegistradorasServiceImpl.buscarMaquinaRegistradora(codigo);
+	maquinaRegistradora_a_actualizar = maquinasRegistradorasServiceImpl.buscarMaquinaRegistradora(id);
 	
 	/** Se actualizan los valores */
 	maquinaRegistradora_a_actualizar.setId(maquinaRegistradora.getId());
@@ -82,8 +75,8 @@ public class MaquinasRegistradorasController {
 		
 	/** Método para eliminar una caja registradora */
 	@DeleteMapping("/maquinaregistradora/{id}")
-	public void eliminarMaquinaRegistradora(@PathVariable(name = "codigo") Long codigo) {
-		maquinasRegistradorasServiceImpl.eliminarMaquinaRegistradora(codigo);
+	public void eliminarMaquinaRegistradora(@PathVariable(name = "id") Long id) {
+		maquinasRegistradorasServiceImpl.eliminarMaquinaRegistradora(id);
 		System.out.println("Máquina registradora eliminada con exito.");
 	}
 }

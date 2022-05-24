@@ -31,12 +31,12 @@ public class VentaServiceImpl implements VentaService{
 	}
 
 	@Override
-	public void eliminarVenta(Long codigo) {		
+	public void eliminarVenta(Long id) {		
 	}
 
 	@Override
-	public VentaDTO buscarVenta(Long codigo) {
-		return ventaDAO.findById(codigo).get();
+	public VentaDTO buscarVenta(Long id) {
+		return ventaDAO.findById(id).get();
 	}
 	
 }

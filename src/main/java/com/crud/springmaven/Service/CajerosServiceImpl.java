@@ -31,12 +31,12 @@ public class CajerosServiceImpl implements CajerosService {
 	}
 
 	@Override
-	public void eliminarCajero(Long codigo) {
+	public void eliminarCajero(Long id) {
 	}
 
 	@Override
-	public CajerosDTO buscarCajero(Long codigo) {
-		return cajerosDAO.findById(codigo).get();
+	public CajerosDTO buscarCajero(Long id) {
+		return cajerosDAO.findById(id).get();
 	}
 
 }

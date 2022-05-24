@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "MaquinasRegistradoras")
+@Table(name = "maquinas_registradoras")
 
 public class MaquinasRegistradorasDTO {
 	
@@ -19,7 +19,7 @@ public class MaquinasRegistradorasDTO {
 	private Long id;
 
 	@Column(name = "piso")
-	private String piso;
+	private int piso;
 	
 	@OneToMany
 	@JoinColumn(name = "id")
@@ -32,15 +32,15 @@ public class MaquinasRegistradorasDTO {
 		this.id = id;
 	}
 	
-	public String getPiso() {
+	public int getPiso() {
 		return piso;
 	}
 
-	public void setPiso(String piso) {
+	public void setPiso(int piso) {
 		this.piso = piso;
 	}
 
-	public MaquinasRegistradorasDTO(Long id, String piso) {
+	public MaquinasRegistradorasDTO(Long id, int piso) {
 		super();
 		this.id = id;
 		this.piso = piso;

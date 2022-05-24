@@ -16,9 +16,9 @@ public interface VentaService {
     public VentaDTO modificarVenta(VentaDTO venta);
 
     //Eliminar venta
-    public void eliminarVenta(Long codigo);
+    public void eliminarVenta(Long id);
     
     //Buscar venta
-    public VentaDTO buscarVenta(Long codigo);	
+    public VentaDTO buscarVenta(Long id);	
 
 }

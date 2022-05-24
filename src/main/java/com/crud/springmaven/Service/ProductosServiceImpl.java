@@ -32,12 +32,12 @@ public class ProductosServiceImpl implements ProductosService{
 	}
 
 	@Override
-	public void eliminarProducto(Long codigo) {
+	public void eliminarProducto(Long id) {
 	}
 
 	@Override
-	public ProductosDTO buscarProducto(Long codigo) {
-		return productosDAO.findById(codigo).get();
+	public ProductosDTO buscarProducto(Long id) {
+		return productosDAO.findById(id).get();
 	}
 
 }

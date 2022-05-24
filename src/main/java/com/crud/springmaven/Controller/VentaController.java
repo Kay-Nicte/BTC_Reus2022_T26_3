@@ -3,6 +3,7 @@ package com.crud.springmaven.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,12 +38,6 @@ public class VentaController {
 	public List<VentaDTO> listarVentas() {
 		return ventaServiceImpl.listarVentas();
 	}
-	
-	/** Método para listar ventas por código */
-	@GetMapping("/ventas/codigo/{codigo}")
-	public List<VentaDTO> listarVentaCodigo(@PathVariable(name = "codigo") String codigo) {
-		return null;
-	}
 
 	/** Método para crear una nueva venta */
 	@PostMapping("/ventas")
@@ -52,13 +47,13 @@ public class VentaController {
 	
 	/** Método para buscar una venta por codigo */
 	@GetMapping("/ventas/{id}")
-	public VentaDTO buscarVentaId(@PathVariable(name = "codigo") Long codigo) {
-		return ventaServiceImpl.buscarVenta(codigo);
+	public VentaDTO buscarVentaId(@PathVariable(name = "id") Long id) {
+		return ventaServiceImpl.buscarVenta(id);
 	}
 	
 	/** Método para actualizar una venta */
 	@PutMapping("/ventas/{id}")
-	public VentaDTO actualizarVenta(@PathVariable(name = "codigo") Long codigo,
+	public VentaDTO actualizarVenta(@PathVariable(name = "id") Long id,
 			@RequestBody VentaDTO venta) {
 		
 	/** Se definen instancias del tipo Ventas */
@@ -66,7 +61,7 @@ public class VentaController {
 	VentaDTO actualizado = new VentaDTO();
 		
 	/** Se filtra la venta a actualizar por código */
-	venta_a_actualizar = ventaServiceImpl.buscarVenta(codigo);
+	venta_a_actualizar = ventaServiceImpl.buscarVenta(id);
 		
 	/** Se actualizan los valores */
 	venta_a_actualizar.setId(venta.getId());
@@ -77,5 +72,12 @@ public class VentaController {
 	actualizado = ventaServiceImpl.modificarVenta(venta_a_actualizar);
 
 		return actualizado;
+	}
+	
+	/** Método para eliminar una venta */
+	@DeleteMapping("/ventas/{id}")
+	public void eliminarVenta(@PathVariable (name = "id") Long id) {
+		ventaServiceImpl.eliminarVenta(id);
+		System.out.println("Se ha eliminado la venta");
 	}
 }

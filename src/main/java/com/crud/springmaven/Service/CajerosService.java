@@ -16,9 +16,9 @@ public interface CajerosService {
     public CajerosDTO modificarCajeros(CajerosDTO cajero);
 
     //Eliminar Cajero
-    public void eliminarCajero(Long codigo);
+    public void eliminarCajero(Long id);
     
     //Buscar Cajero
-    public CajerosDTO buscarCajero(Long codigo);
+    public CajerosDTO buscarCajero(Long id);
 	
 }

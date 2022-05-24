@@ -39,12 +39,6 @@ public class CajerosController {
 	public List<CajerosDTO> listarCajeros() {
 		return cajerosServiceImpl.listarCajeros();
 	}
-	
-	/** Método para listar cajeros por código */
-	@GetMapping("/cajeros/codigo/{codigo}")
-	public List<CajerosDTO> listarCajerosCodigo(@PathVariable(name = "codigo") String codigo) {
-		return null;
-	}
 
 	/** Método para crear un nuevo cajero */
 	@PostMapping("/cajeros")
@@ -54,13 +48,13 @@ public class CajerosController {
 	
 	/** Método para buscar un cajero por codigo */
 	@GetMapping("/cajeros/{id}")
-	public CajerosDTO buscarCajeroId(@PathVariable(name = "codigo") Long codigo) {
-		return cajerosServiceImpl.buscarCajero(codigo);
+	public CajerosDTO buscarCajeroId(@PathVariable(name = "id") Long id) {
+		return cajerosServiceImpl.buscarCajero(id);
 	}
 	
 	/** Método para actualizar un cajero */
 	@PutMapping("/cajeros/{id}")
-	public CajerosDTO actualizarCajero(@PathVariable(name = "codigo") Long codigo,
+	public CajerosDTO actualizarCajero(@PathVariable(name = "id") Long id,
 			@RequestBody CajerosDTO cajeros) {
 		
 	/** Se definen instancias del tipo Cajeros */
@@ -68,7 +62,7 @@ public class CajerosController {
 	CajerosDTO actualizado = new CajerosDTO();
 		
 	/** Se filtra el cajero a actualizar por código */
-	cajero_a_actualizar = cajerosServiceImpl.buscarCajero(codigo);
+	cajero_a_actualizar = cajerosServiceImpl.buscarCajero(id);
 		
 	/** Se actualizan los valores */
 	cajero_a_actualizar.setId(cajeros.getId());
@@ -81,8 +75,8 @@ public class CajerosController {
 	
 	/** Método para eliminar un cajero */
 	@DeleteMapping("/cajeros/{id}")
-	public void eliminarCajero(@PathVariable(name = "codigo") Long codigo) {
-		cajerosServiceImpl.eliminarCajero(codigo);
+	public void eliminarCajero(@PathVariable(name = "id") Long id) {
+		cajerosServiceImpl.eliminarCajero(id);
 		System.out.println("Cajero eliminado con exito.");
 	}
 }

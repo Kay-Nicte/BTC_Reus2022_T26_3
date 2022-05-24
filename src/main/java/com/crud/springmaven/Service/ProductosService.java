@@ -16,9 +16,9 @@ public interface ProductosService {
     public ProductosDTO modificarProductos(ProductosDTO producto);
 
     //Eliminar producto
-    public void eliminarProducto(Long codigo);
+    public void eliminarProducto(Long id);
     
     //Buscar producto
-    public ProductosDTO buscarProducto(Long codigo);
+    public ProductosDTO buscarProducto(Long id);
 
 }
